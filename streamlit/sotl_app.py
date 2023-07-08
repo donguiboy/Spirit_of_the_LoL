@@ -31,7 +31,7 @@ st.set_page_config(
 #load_dotenv()
 
 #Get value stored in variable
-api_key = st.secrets["API_KEY"]
+api_key = st.secrets["general"]["API_KEY"]
 
 def fetch_match(puuid, api_key, region, match_type, count = 1):
     """

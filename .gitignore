@@ -4,4 +4,4 @@ Credentials/
 images/champion/
 data/predict/
 data/
-.streamlit
+.streamlit/secrets.toml
