@@ -279,6 +279,11 @@ else:
 
 st.write(f" ")
 st.write(f" ")
+import os
+
+# Ensure the directory exists
+os.makedirs('data', exist_ok=True)
+
 
 if matches == []:
     st.write("No matches found, please check introduced data")
@@ -287,8 +292,9 @@ else:
 
         #Obtain Match Timeline Data
         path_match_timeline =f"https://{macro_region[str(region)]}.api.riotgames.com/lol/match/v5/matches/{matches[match]}/timeline?api_key={api_key}"
-
-        match_data_timeline = 'data/timeline.json'
+        # Now you can write your file
+        with open(match_data_timeline, 'w', encoding='utf-8') as f:
+            match_data_timeline = 'data/timeline.json'
 
         match_timeline = requests.get(path_match_timeline).json()
 
