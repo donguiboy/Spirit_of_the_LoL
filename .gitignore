@@ -3,5 +3,5 @@ Credentials/
 .env
 images/champion/
 data/predict/
-streamlit/data/
-streamlit/.streamlit
+data/
+.streamlit
