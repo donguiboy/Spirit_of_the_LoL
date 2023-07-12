@@ -74,9 +74,9 @@ def find_image(champion):
     """
     Try to find the champion image, if it does not exist return a poro image
     """
-    if os.path.exists(f"../../images/champion/{champion}.png"):
-        return f"../../images/champion/{champion}.png"
-    return  f"../../images/champion/4155.png"
+    if os.path.exists(f"../images/champion/{champion}.png"):
+        return f"../images/champion/{champion}.png"
+    return  f"../images/champion/4155.png"
 
 def unique_tier(solo_tier,flex_tier):
     """
@@ -381,8 +381,8 @@ for match in range(len(matches)):
     look_events=["CHAMPION_SPECIAL_KILL","CHAMPION_KILL","ELITE_MONSTER_KILL","BUILDING_KILL"]
     folder_path = "data/"
     league=unique_tier(solo_tier,flex_tier)
-    pickle_file_path = f"../../model/pickles_models/{league}_model.pkl"
-    transformer_file_path = f"../preprocessing/pickles_transformers/{minute}/{league}_transformer.pkl"
+    pickle_file_path = f"../model/pickles_models/{league}_model.pkl"
+    transformer_file_path = f"preprocessing/pickles_transformers/{minute}/{league}_transformer.pkl"
 
     with open(pickle_file_path, "rb") as file:
         # Load the data from the pickle file
