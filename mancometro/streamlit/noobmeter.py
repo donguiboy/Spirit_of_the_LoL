@@ -3,6 +3,7 @@ import streamlit as st
 #To work with requests and APIs
 import json
 import requests
+from pathlib import Path
 
 #To operate with date and times
 import datetime
@@ -34,6 +35,10 @@ from preprocessing.clean_preprocess import preprocess_pred
 
 #Get value stored in variable
 api_key = st.secrets["API_KEY"]
+
+#
+path = Path(__file__).parent
+
 
 st.set_page_config(
             page_title="NoobMeter", # Adjust things later
@@ -377,12 +382,13 @@ for match in range(len(matches)):
     user_champion = match_final["info"]["participants"][user_participant]["championName"]
 
     #Info for loading model
+
     minute = 10
     look_events=["CHAMPION_SPECIAL_KILL","CHAMPION_KILL","ELITE_MONSTER_KILL","BUILDING_KILL"]
     folder_path = "data/"
     league=unique_tier(solo_tier,flex_tier)
-    pickle_file_path = f"../model/pickles_models/{league}_model.pkl"
-    transformer_file_path = f"preprocessing/pickles_transformers/{minute}/{league}_transformer.pkl"
+    pickle_file_path = os.path.join(path, f"../model/pickles_models/{league}_model.pkl")
+    transformer_file_path = os.path.join(path, f"preprocessing/pickles_transformers/{minute}/{league}_transformer.pkl")
 
     with open(pickle_file_path, "rb") as file:
         # Load the data from the pickle file
