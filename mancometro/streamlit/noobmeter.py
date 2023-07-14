@@ -80,8 +80,10 @@ def find_image(champion):
     Try to find the champion image, if it does not exist return a poro image
     """
     if os.path.exists(os.path.join(f"../images/champion/{champion}.png")):
-        return os.path.join(f"../images/champion/{champion}.png")
-    return  os.path.join(f"../images/champion/4155.png")
+                champion_icon = os.path.join(f"../images/champion/{champion}.png")
+        return champion_icon
+    placeholder = os.path.join(f"../images/champion/4155.png")
+    return placeholder
 
 def unique_tier(solo_tier,flex_tier):
     """
