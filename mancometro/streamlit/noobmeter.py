@@ -112,9 +112,9 @@ def get_image(champion):
     """
     Get the champion image as an array into the script
     """
-    path = find_image(champion).format(champion.title())
+    l_path = find_image(champion).format(champion.title())
     #im = plt.imread(path)
-    im = Image.open(path)
+    im = Image.open(l_path)
     return im
 
 def offset_image(coord, name, ax):
