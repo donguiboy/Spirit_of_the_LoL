@@ -37,7 +37,7 @@ from preprocessing.clean_preprocess import preprocess_pred
 api_key = st.secrets["API_KEY"]
 
 #
-path = Path(__file__).parent
+os_path = Path(__file__).parent
 
 
 st.set_page_config(
@@ -79,8 +79,8 @@ def find_image(champion):
     """
     Try to find the champion image, if it does not exist return a poro image
     """
-    if os.path.exists(f"../images/champion/{champion}.png"):
-        return f"../images/champion/{champion}.png"
+    if os.path.exists(os.path.join(os_path,f"../images/champion/{champion}.png")):
+        return os.f"../images/champion/{champion}.png"
     return  f"../images/champion/4155.png"
 
 def unique_tier(solo_tier,flex_tier):
@@ -112,9 +112,9 @@ def get_image(champion):
     """
     Get the champion image as an array into the script
     """
-    l_path = find_image(champion).format(champion.title())
+    path = find_image(champion).format(champion.title())
     #im = plt.imread(path)
-    im = Image.open(l_path)
+    im = Image.open(path)
     return im
 
 def offset_image(coord, name, ax):
@@ -387,8 +387,8 @@ for match in range(len(matches)):
     look_events=["CHAMPION_SPECIAL_KILL","CHAMPION_KILL","ELITE_MONSTER_KILL","BUILDING_KILL"]
     folder_path = "data/"
     league=unique_tier(solo_tier,flex_tier)
-    pickle_file_path = os.path.join(path, f"../model/pickles_models/{league}_model.pkl")
-    transformer_file_path = os.path.join(path, f"preprocessing/pickles_transformers/{minute}/{league}_transformer.pkl")
+    pickle_file_path = os.path.join(os_path, f"../model/pickles_models/{league}_model.pkl")
+    transformer_file_path = os.path.join(os_path, f"preprocessing/pickles_transformers/{minute}/{league}_transformer.pkl")
 
     with open(pickle_file_path, "rb") as file:
         # Load the data from the pickle file
